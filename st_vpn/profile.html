@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry VPN - Profile</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🍓</span>
+                <h1>Strawberry VPN</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="servers.html"><i class="fas fa-server"></i> Servers</a></li>
+                    <li><a href="statistics.html"><i class="fas fa-chart-line"></i> Statistics</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="active"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+            <div class="account-info">
+                <div class="account-type free" id="accountTypeBadge">Free Account</div>
+                <button id="upgradeBtn" class="btn-upgrade">Upgrade to Premium</button>
+            </div>
+            <div class="logout-container">
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h2>Profile</h2>
+                <div class="user-info">
+                    <span id="userEmail">user@example.com</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <div class="avatar-wrapper">
+                                <div class="avatar-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="btn-avatar-edit">
+                                    <i class="fas fa-camera"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="profile-account-type" id="profileAccountType">
+                            Free Account
+                        </div>
+                    </div>
+                    
+                    <div class="profile-body">
+                        <div class="profile-info-section">
+                            <h3 class="profile-section-title">Account Information</h3>
+                            
+                            <div class="profile-info-group">
+                                <div class="profile-info-label">Email Address</div>
+                                <div class="profile-info-value" id="profileEmail">user@example.com</div>
+                            </div>
+                            
+                            <div class="profile-info-group">
+                                <div class="profile-info-label">Username</div>
+                                <div class="profile-info-value" id="profileUsername">strawberry_user</div>
+                            </div>
+                            
+                            <div class="profile-info-group">
+                                <div class="profile-info-label">Member Since</div>
+                                <div class="profile-info-value" id="profileJoinDate">July 15, 2023</div>
+                            </div>
+                            
+                            <div class="profile-info-group">
+                                <div class="profile-info-label">Account Status</div>
+                                <div class="profile-info-value status-active">Active</div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-info-section">
+                            <h3 class="profile-section-title">Personal Information</h3>
+                            
+                            <div class="profile-form">
+                                <div class="profile-form-row">
+                                    <div class="profile-form-group">
+                                        <label for="profileFirstName">First Name</label>
+                                        <input type="text" id="profileFirstName" placeholder="Enter first name">
+                                    </div>
+                                    <div class="profile-form-group">
+                                        <label for="profileLastName">Last Name</label>
+                                        <input type="text" id="profileLastName" placeholder="Enter last name">
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-form-row">
+                                    <div class="profile-form-group">
+                                        <label for="profileDisplayName">Display Name</label>
+                                        <input type="text" id="profileDisplayName" placeholder="Choose a display name">
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-form-row">
+                                    <div class="profile-form-group">
+                                        <label for="profileTimezone">Timezone</label>
+                                        <select id="profileTimezone">
+                                            <option value="UTC-12:00">(UTC-12:00) International Date Line West</option>
+                                            <option value="UTC-11:00">(UTC-11:00) Samoa</option>
+                                            <option value="UTC-10:00">(UTC-10:00) Hawaii</option>
+                                            <option value="UTC-09:00">(UTC-09:00) Alaska</option>
+                                            <option value="UTC-08:00">(UTC-08:00) Pacific Time (US & Canada)</option>
+                                            <option value="UTC-07:00">(UTC-07:00) Mountain Time (US & Canada)</option>
+                                            <option value="UTC-06:00">(UTC-06:00) Central Time (US & Canada)</option>
+                                            <option value="UTC-05:00">(UTC-05:00) Eastern Time (US & Canada)</option>
+                                            <option value="UTC-04:00">(UTC-04:00) Atlantic Time (Canada)</option>
+                                            <option value="UTC-03:00">(UTC-03:00) Buenos Aires</option>
+                                            <option value="UTC-02:00">(UTC-02:00) Mid-Atlantic</option>
+                                            <option value="UTC-01:00">(UTC-01:00) Azores</option>
+                                            <option value="UTC+00:00" selected>(UTC+00:00) London, Dublin, Lisbon</option>
+                                            <option value="UTC+01:00">(UTC+01:00) Berlin, Paris, Rome, Madrid</option>
+                                            <option value="UTC+02:00">(UTC+02:00) Athens, Istanbul, Cairo</option>
+                                            <option value="UTC+03:00">(UTC+03:00) Moscow, Baghdad</option>
+                                            <option value="UTC+04:00">(UTC+04:00) Dubai, Baku</option>
+                                            <option value="UTC+05:00">(UTC+05:00) Karachi, Islamabad</option>
+                                            <option value="UTC+05:30">(UTC+05:30) New Delhi, Mumbai</option>
+                                            <option value="UTC+06:00">(UTC+06:00) Dhaka</option>
+                                            <option value="UTC+07:00">(UTC+07:00) Bangkok, Jakarta</option>
+                                            <option value="UTC+08:00">(UTC+08:00) Beijing, Singapore, Hong Kong</option>
+                                            <option value="UTC+09:00">(UTC+09:00) Tokyo, Seoul</option>
+                                            <option value="UTC+10:00">(UTC+10:00) Sydney, Melbourne</option>
+                                            <option value="UTC+11:00">(UTC+11:00) New Caledonia</option>
+                                            <option value="UTC+12:00">(UTC+12:00) Auckland, Fiji</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-form-row">
+                                    <div class="profile-form-group">
+                                        <label for="profileLanguage">Preferred Language</label>
+                                        <select id="profileLanguage">
+                                            <option value="en" selected>English</option>
+                                            <option value="es">Español</option>
+                                            <option value="fr">Français</option>
+                                            <option value="de">Deutsch</option>
+                                            <option value="ja">日本語</option>
+                                            <option value="zh">中文</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="profile-form-row profile-form-actions">
+                                    <button class="btn-secondary">Cancel</button>
+                                    <button class="btn-primary" id="btnSaveProfile">Save Changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-stats-card">
+                    <h3 class="profile-section-title">Account Statistics</h3>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="statTotalTime">127h 45m</div>
+                                <div class="stat-label">Total Time Connected</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-server"></i></div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="statServersUsed">8</div>
+                                <div class="stat-label">Servers Used</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-download"></i></div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="statDataDownloaded">4.7 GB</div>
+                                <div class="stat-label">Data Downloaded</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon"><i class="fas fa-upload"></i></div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="statDataUploaded">1.2 GB</div>
+                                <div class="stat-label">Data Uploaded</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-usage-container">
+                        <div class="data-usage-header">
+                            <h4>Monthly Data Usage</h4>
+                            <div class="data-badge free" id="dataLimitBadge">10GB Limit</div>
+                        </div>
+                        
+                        <div class="data-usage-bar-container">
+                            <div class="data-usage-bar">
+                                <div class="data-usage-fill" style="width: 59%"></div>
+                            </div>
+                            <div class="data-usage-labels">
+                                <span class="data-used" id="dataUsed">5.9 GB</span>
+                                <span class="data-limit" id="dataLimit">10 GB</span>
+                            </div>
+                        </div>
+                        
+                        <div class="data-usage-info">
+                            <p>Your plan includes <span class="highlight">10GB</span> of data per month. Your monthly data resets in <span class="highlight" id="dataResetDays">12 days</span>.</p>
+                            <button class="btn-upgrade-small">Upgrade for Unlimited Data</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-danger-zone">
+                    <h3 class="profile-section-title">Account Management</h3>
+                    
+                    <div class="danger-zone-card">
+                        <div class="danger-zone-item">
+                            <div class="danger-zone-info">
+                                <h4>Delete Account</h4>
+                                <p>Permanently delete your account and all data. This action cannot be undone.</p>
+                            </div>
+                            <button class="btn-danger" id="btnDeleteAccount">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div id="deleteAccountModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Account</h3>
+                <button class="btn-close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>This action is permanent and cannot be undone. All your data will be deleted.</p>
+                </div>
+                <p>To confirm deletion, please type "<strong>delete my account</strong>" below:</p>
+                <input type="text" id="deleteConfirmInput" placeholder="Type 'delete my account'">
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="btnCancelDelete">Cancel</button>
+                <button class="btn-danger" id="btnConfirmDelete" disabled>Delete Permanently</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html> 

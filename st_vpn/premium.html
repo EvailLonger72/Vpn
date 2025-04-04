@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry VPN - Premium Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🍓</span>
+                <h1>Strawberry VPN</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-server"></i> Servers</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Statistics</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="account-info">
+                <div class="account-type premium" id="accountTypeBadge">Premium Account</div>
+                <div class="premium-badge">
+                    <i class="fas fa-crown"></i> Premium
+                </div>
+            </div>
+            <div class="logout-container">
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h2>Premium Dashboard</h2>
+                <div class="user-info">
+                    <span id="userEmail">premium@example.com</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-grid">
+                <section class="connection-panel">
+                    <div class="panel-header">
+                        <h3>VPN Connection</h3>
+                    </div>
+                    <div class="connection-status">
+                        <div class="status-indicator" id="connectionIndicator">
+                            <div class="indicator offline"></div>
+                            <span class="status-text" id="connectionStatus">Disconnected</span>
+                        </div>
+                        <div class="connection-details">
+                            <div class="detail-item">
+                                <span class="detail-label">IP Address:</span>
+                                <span class="detail-value" id="ipAddress">Not connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Connected for:</span>
+                                <span class="detail-value" id="connectionTime">00:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="connection-toggle">
+                        <button id="connectButton" class="btn-connect">Connect</button>
+                    </div>
+                </section>
+                
+                <section class="server-selection premium-servers">
+                    <div class="panel-header">
+                        <h3>Select Server</h3>
+                    </div>
+                    <div class="server-tabs">
+                        <button class="tab-button active" data-tab="standard">Standard</button>
+                        <button class="tab-button" data-tab="gaming">Gaming</button>
+                        <button class="tab-button" data-tab="download">Download</button>
+                        <button class="tab-button" data-tab="upload">Upload</button>
+                    </div>
+                    <div class="server-content">
+                        <div class="tab-content active" id="standard-tab">
+                            <div class="server-category">
+                                <h4>Standard Servers</h4>
+                                <div class="server-options">
+                                    <div class="server-option" data-server="us">
+                                        <div class="server-flag">🇺🇸</div>
+                                        <div class="server-details">
+                                            <span class="server-name">United States</span>
+                                            <span class="server-ping">120ms</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option" data-server="uk">
+                                        <div class="server-flag">🇬🇧</div>
+                                        <div class="server-details">
+                                            <span class="server-name">United Kingdom</span>
+                                            <span class="server-ping">135ms</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option" data-server="jp">
+                                        <div class="server-flag">🇯🇵</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Japan</span>
+                                            <span class="server-ping">180ms</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option" data-server="sg">
+                                        <div class="server-flag">🇸🇬</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Singapore</span>
+                                            <span class="server-ping">160ms</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="gaming-tab">
+                            <div class="server-category">
+                                <h4>Gaming Optimized Servers</h4>
+                                <p class="tab-description">Servers optimized for low ping and stable connections</p>
+                                <div class="server-options">
+                                    <div class="server-option premium" data-server="gaming-us">
+                                        <div class="server-flag">🇺🇸</div>
+                                        <div class="server-details">
+                                            <span class="server-name">US Gaming</span>
+                                            <span class="server-ping">45ms</span>
+                                            <span class="server-badge gaming">Gaming</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="gaming-de">
+                                        <div class="server-flag">🇩🇪</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Germany Gaming</span>
+                                            <span class="server-ping">50ms</span>
+                                            <span class="server-badge gaming">Gaming</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="gaming-jp">
+                                        <div class="server-flag">🇯🇵</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Japan Gaming</span>
+                                            <span class="server-ping">60ms</span>
+                                            <span class="server-badge gaming">Gaming</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="gaming-sg">
+                                        <div class="server-flag">🇸🇬</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Singapore Gaming</span>
+                                            <span class="server-ping">55ms</span>
+                                            <span class="server-badge gaming">Gaming</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="gaming-br">
+                                        <div class="server-flag">🇧🇷</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Brazil Gaming</span>
+                                            <span class="server-ping">65ms</span>
+                                            <span class="server-badge gaming">Gaming</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="download-tab">
+                            <div class="server-category">
+                                <h4>Download Optimized Servers</h4>
+                                <p class="tab-description">Servers optimized for fast download speeds</p>
+                                <div class="server-options">
+                                    <div class="server-option premium" data-server="dl-us">
+                                        <div class="server-flag">🇺🇸</div>
+                                        <div class="server-details">
+                                            <span class="server-name">US Download</span>
+                                            <span class="server-speed">500 Mbps</span>
+                                            <span class="server-badge download">Download</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="dl-uk">
+                                        <div class="server-flag">🇬🇧</div>
+                                        <div class="server-details">
+                                            <span class="server-name">UK Download</span>
+                                            <span class="server-speed">450 Mbps</span>
+                                            <span class="server-badge download">Download</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="dl-nl">
+                                        <div class="server-flag">🇳🇱</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Netherlands Download</span>
+                                            <span class="server-speed">520 Mbps</span>
+                                            <span class="server-badge download">Download</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="dl-fr">
+                                        <div class="server-flag">🇫🇷</div>
+                                        <div class="server-details">
+                                            <span class="server-name">France Download</span>
+                                            <span class="server-speed">480 Mbps</span>
+                                            <span class="server-badge download">Download</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="dl-ca">
+                                        <div class="server-flag">🇨🇦</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Canada Download</span>
+                                            <span class="server-speed">470 Mbps</span>
+                                            <span class="server-badge download">Download</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="upload-tab">
+                            <div class="server-category">
+                                <h4>Upload Optimized Servers</h4>
+                                <p class="tab-description">Servers optimized for fast upload speeds</p>
+                                <div class="server-options">
+                                    <div class="server-option premium" data-server="ul-us">
+                                        <div class="server-flag">🇺🇸</div>
+                                        <div class="server-details">
+                                            <span class="server-name">US Upload</span>
+                                            <span class="server-speed">300 Mbps</span>
+                                            <span class="server-badge upload">Upload</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="ul-uk">
+                                        <div class="server-flag">🇬🇧</div>
+                                        <div class="server-details">
+                                            <span class="server-name">UK Upload</span>
+                                            <span class="server-speed">280 Mbps</span>
+                                            <span class="server-badge upload">Upload</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="ul-de">
+                                        <div class="server-flag">🇩🇪</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Germany Upload</span>
+                                            <span class="server-speed">310 Mbps</span>
+                                            <span class="server-badge upload">Upload</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="ul-sg">
+                                        <div class="server-flag">🇸🇬</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Singapore Upload</span>
+                                            <span class="server-speed">290 Mbps</span>
+                                            <span class="server-badge upload">Upload</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-option premium" data-server="ul-au">
+                                        <div class="server-flag">🇦🇺</div>
+                                        <div class="server-details">
+                                            <span class="server-name">Australia Upload</span>
+                                            <span class="server-speed">270 Mbps</span>
+                                            <span class="server-badge upload">Upload</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="globe-container">
+                    <div class="panel-header">
+                        <h3>Global Network</h3>
+                    </div>
+                    <div id="earthGlobe" class="earth-globe"></div>
+                </section>
+                
+                <section class="stats-panel">
+                    <div class="panel-header">
+                        <h3>Connection Statistics</h3>
+                        <div class="premium-badge small">Premium</div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="downloadSpeed">0.00</div>
+                            <div class="stat-label">Download (MB/s)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="uploadSpeed">0.00</div>
+                            <div class="stat-label">Upload (MB/s)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="pingValue">--</div>
+                            <div class="stat-label">Ping (ms)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="dataUsed">0.00</div>
+                            <div class="stat-label">Data Used (GB)</div>
+                        </div>
+                    </div>
+                    <div class="premium-stats">
+                        <div class="premium-stat-item">
+                            <div class="premium-stat-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="premium-stat-details">
+                                <div class="premium-stat-label">Advanced Encryption</div>
+                                <div class="premium-stat-value">Active</div>
+                            </div>
+                        </div>
+                        <div class="premium-stat-item">
+                            <div class="premium-stat-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="premium-stat-details">
+                                <div class="premium-stat-label">Speed Boost</div>
+                                <div class="premium-stat-value">150%</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/premium.js"></script>
+</body>
+</html> 

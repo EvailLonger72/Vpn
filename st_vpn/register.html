@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry VPN - Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="register-container">
+            <div class="logo">
+                <span class="logo-icon">🍓</span>
+                <h1>Strawberry VPN</h1>
+            </div>
+            <div class="register-form">
+                <h2>Create Account</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Account Type</label>
+                        <div class="account-type-selector">
+                            <div class="account-option">
+                                <input type="radio" id="free" name="accountType" value="free" checked>
+                                <label for="free">
+                                    <span class="account-title">Free</span>
+                                    <span class="account-description">Basic VPN access</span>
+                                </label>
+                            </div>
+                            <div class="account-option">
+                                <input type="radio" id="premium" name="accountType" value="premium">
+                                <label for="premium">
+                                    <span class="account-title">Premium</span>
+                                    <span class="account-description">Full VPN features</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+                <p>Already have an account? <a href="index.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/auth.js"></script>
+</body>
+</html> 

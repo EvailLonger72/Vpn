@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strawberry VPN - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.135.0/build/three.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🍓</div>
+                <h1>StrawberryVPN</h1>
+            </div>
+            
+            <button id="darkModeToggle" class="dark-mode-toggle">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="servers.html"><i class="fas fa-server"></i> Servers</a></li>
+                    <li><a href="statistics.html"><i class="fas fa-chart-bar"></i> Statistics</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </nav>
+            
+            <div class="account-info">
+                <div id="accountTypeBadge" class="account-type free">Free Account</div>
+                <button id="upgradeBtn" class="btn-upgrade">Upgrade to Premium</button>
+            </div>
+            
+            <div class="logout-container">
+                <button id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h2>VPN Dashboard</h2>
+                <div class="user-info">
+                    <span id="userEmail">user@example.com</span>
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="favorite-servers-container">
+                <div class="favorite-servers-heading">
+                    <h3>Favorite Servers</h3>
+                </div>
+                <div id="favoriteServersList" class="favorite-servers-list">
+                    <p class="no-favorites">No favorite servers added yet.</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-grid">
+                <div class="connection-panel">
+                    <div class="panel-header">
+                        <h3>Connection Status</h3>
+                    </div>
+                    
+                    <div class="connection-status">
+                        <div class="status-indicator">
+                            <div class="indicator offline"></div>
+                            <span id="connectionStatus" class="status-text">Disconnected</span>
+                        </div>
+                        
+                        <div class="connection-details">
+                            <div class="detail-item">
+                                <span class="detail-label">IP Address:</span>
+                                <span id="ipAddress" class="detail-value">Not connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span id="location" class="detail-value">N/A</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Connected for:</span>
+                                <span id="connectionTime" class="detail-value">00:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="auto-connect-container">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoConnectToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Auto-connect on startup</span>
+                    </div>
+                    
+                    <div class="quick-connect-container">
+                        <button id="quickConnectBtn" class="btn-quick-connect">
+                            <i class="fas fa-bolt"></i> Quick Connect
+                        </button>
+                    </div>
+                    
+                    <div class="connection-toggle">
+                        <button id="connectButton" class="btn-connect">Connect</button>
+                    </div>
+                </div>
+                
+                <div class="server-selection">
+                    <div class="panel-header">
+                        <h3>Server Selection</h3>
+                    </div>
+                    
+                    <div class="server-category">
+                        <h4>Standard Servers</h4>
+                        <div class="server-options">
+                            <div class="server-option" data-server="us">
+                                <button class="favorite-server"><i class="far fa-star"></i></button>
+                                <div class="server-flag">🇺🇸</div>
+                                <div class="server-details">
+                                    <span class="server-name">United States</span>
+                                    <span class="server-ping">Ping: 85ms</span>
+                                    <span class="server-speed">Load: 65%</span>
+                                </div>
+                            </div>
+                            <div class="server-option" data-server="uk">
+                                <button class="favorite-server"><i class="far fa-star"></i></button>
+                                <div class="server-flag">🇬🇧</div>
+                                <div class="server-details">
+                                    <span class="server-name">United Kingdom</span>
+                                    <span class="server-ping">Ping: 105ms</span>
+                                    <span class="server-speed">Load: 48%</span>
+                                </div>
+                            </div>
+                            <div class="server-option" data-server="jp">
+                                <button class="favorite-server"><i class="far fa-star"></i></button>
+                                <div class="server-flag">🇯🇵</div>
+                                <div class="server-details">
+                                    <span class="server-name">Japan</span>
+                                    <span class="server-ping">Ping: 150ms</span>
+                                    <span class="server-speed">Load: 35%</span>
+                                </div>
+                            </div>
+                            <div class="server-option" data-server="sg">
+                                <button class="favorite-server"><i class="far fa-star"></i></button>
+                                <div class="server-flag">🇸🇬</div>
+                                <div class="server-details">
+                                    <span class="server-name">Singapore</span>
+                                    <span class="server-ping">Ping: 120ms</span>
+                                    <span class="server-speed">Load: 42%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-preview">
+                        <div class="lock-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="premium-message">
+                            <h4>Unlock Premium Servers</h4>
+                            <p>Upgrade to premium to access gaming-optimized, streaming, and high-speed servers.</p>
+                            <button class="btn-upgrade-small">Upgrade Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="globe-container">
+                    <div class="panel-header">
+                        <h3>Global Network</h3>
+                        
+                        <div class="traffic-viz-toggle">
+                            <button id="toggleTrafficBtn" class="viz-button">
+                                <i class="fas fa-project-diagram"></i> Traffic
+                            </button>
+                            <button id="toggleScanBtn" class="viz-button">
+                                <i class="fas fa-shield-alt"></i> Scan
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="threat-scan-container">
+                        <div class="threat-scan-status" id="scanStatus">Threat scanning disabled</div>
+                        <div class="threats-detected" id="threatsAlert">
+                            <i class="fas fa-exclamation-triangle"></i> Threats detected! Your connection is protected.
+                        </div>
+                        <button id="startScanBtn" class="btn-scan">
+                            <i class="fas fa-radar"></i> Run Security Scan
+                        </button>
+                    </div>
+                    
+                    <div id="earthGlobe" class="earth-globe"></div>
+                </div>
+                
+                <div class="stats-panel">
+                    <div class="panel-header">
+                        <h3>Connection Stats</h3>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div id="downloadSpeed" class="stat-value">0.00</div>
+                            <div class="stat-label">Download (MB/s)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div id="uploadSpeed" class="stat-value">0.00</div>
+                            <div class="stat-label">Upload (MB/s)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div id="pingValue" class="stat-value">0</div>
+                            <div class="stat-label">Ping (ms)</div>
+                        </div>
+                        <div class="stat-item">
+                            <div id="dataUsed" class="stat-value">0.00</div>
+                            <div class="stat-label">Data Used (GB)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-stats">
+                        <div class="premium-stat-item">
+                            <div class="premium-stat-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="premium-stat-details">
+                                <div class="premium-stat-label">Data Limit</div>
+                                <div class="premium-stat-value">10 GB / month</div>
+                            </div>
+                        </div>
+                        <div class="premium-stat-item">
+                            <div class="premium-stat-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="premium-stat-details">
+                                <div class="premium-stat-label">Speed Limit</div>
+                                <div class="premium-stat-value">5 MB/s</div>
+                            </div>
+                        </div>
+                        <div class="premium-stat-item">
+                            <div class="premium-stat-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="premium-stat-details">
+                                <div class="premium-stat-label">Premium Servers</div>
+                                <div class="premium-stat-value">Upgrade to Access</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/globe.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const trafficBtn = document.getElementById('toggleTrafficBtn');
+            if (trafficBtn && window.globeControl) {
+                trafficBtn.addEventListener('click', function() {
+                    const isActive = this.classList.toggle('active');
+                    window.globeControl.toggleTrafficVisualization(isActive);
+                });
+            }
+            
+            const scanBtn = document.getElementById('toggleScanBtn');
+            if (scanBtn && window.globeControl) {
+                scanBtn.addEventListener('click', function() {
+                    const isActive = this.classList.toggle('active');
+                    window.globeControl.toggleScanningMode(isActive);
+                    
+                    const scanStatus = document.getElementById('scanStatus');
+                    if (scanStatus) {
+                        scanStatus.textContent = isActive ? 
+                            'Threat scanning active - monitoring network' : 
+                            'Threat scanning disabled';
+                    }
+                    
+                    if (!isActive) {
+                        const threatsAlert = document.getElementById('threatsAlert');
+                        if (threatsAlert) {
+                            threatsAlert.classList.remove('show');
+                        }
+                    }
+                });
+            }
+            
+            const startScanBtn = document.getElementById('startScanBtn');
+            if (startScanBtn && window.globeControl) {
+                startScanBtn.addEventListener('click', function() {
+                    const scanBtn = document.getElementById('toggleScanBtn');
+                    if (scanBtn && !scanBtn.classList.contains('active')) {
+                        scanBtn.click();
+                    }
+                    
+                    window.globeControl.simulateThreats();
+                    
+                    this.classList.add('scanning');
+                    this.innerHTML = '<i class="fas fa-spin fa-radar"></i> Scanning...';
+                    
+                    setTimeout(() => {
+                        this.classList.remove('scanning');
+                        this.innerHTML = '<i class="fas fa-radar"></i> Run Security Scan';
+                        
+                        const foundThreats = Math.random() > 0.5;
+                        const threatsAlert = document.getElementById('threatsAlert');
+                        if (threatsAlert) {
+                            threatsAlert.classList.toggle('show', foundThreats);
+                        }
+                    }, 5000);
+                });
+            }
+            
+            window.onThreatDetected = function(lat, lng) {
+                const threatsAlert = document.getElementById('threatsAlert');
+                if (threatsAlert) {
+                    threatsAlert.classList.add('show');
+                }
+            };
+        });
+    </script>
+</body>
+</html> 
+</html> 
