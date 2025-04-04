@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="servers.html">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="account.html">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li class="upgrade-item">
+                        <a href="#upgrade" class="upgrade-link">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade to Premium</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">User</h3>
+                        <span id="account-type" class="account-badge free">Free Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="settings-section">
+                    <h2>General Settings</h2>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Auto-Connect</h3>
+                                    <p>Automatically connect to VPN when app starts</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="auto-connect">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Kill Switch</h3>
+                                    <p>Block internet access when VPN connection drops</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="kill-switch">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>DNS Leak Protection</h3>
+                                    <p>Prevent DNS leaks for enhanced privacy</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="dns-protection" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="settings-section">
+                    <h2>Connection Settings</h2>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Protocol</h3>
+                                    <p>Select VPN protocol</p>
+                                </div>
+                                <div class="settings-control">
+                                    <select id="protocol">
+                                        <option value="auto">Automatic (Recommended)</option>
+                                        <option value="openvpn">OpenVPN</option>
+                                        <option value="wireguard">WireGuard</option>
+                                        <option value="ikev2">IKEv2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Port</h3>
+                                    <p>Select connection port</p>
+                                </div>
+                                <div class="settings-control">
+                                    <select id="port">
+                                        <option value="auto">Automatic (Recommended)</option>
+                                        <option value="443">443 (HTTPS)</option>
+                                        <option value="1194">1194 (OpenVPN)</option>
+                                        <option value="8080">8080</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Connection Timeout</h3>
+                                    <p>Set connection timeout in seconds</p>
+                                </div>
+                                <div class="settings-control">
+                                    <input type="number" id="timeout" min="10" max="120" value="30">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="settings-section">
+                    <h2>Privacy Settings</h2>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>WebRTC Leak Protection</h3>
+                                    <p>Prevent WebRTC leaks that could expose your IP address</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="webrtc-protection" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>IPv6 Leak Protection</h3>
+                                    <p>Disable IPv6 to prevent leaks</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="ipv6-protection" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Data Collection</h3>
+                                    <p>Allow anonymous usage data collection to improve our service</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="data-collection">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="settings-section">
+                    <h2>Advanced Settings</h2>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Split Tunneling</h3>
+                                    <p>Choose which apps use the VPN connection</p>
+                                </div>
+                                <div class="settings-control">
+                                    <button class="btn btn-outline btn-sm" id="split-tunneling-btn">Configure</button>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Custom DNS</h3>
+                                    <p>Use custom DNS servers</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="custom-dns">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item custom-dns-servers" style="display: none;">
+                                <div class="settings-info">
+                                    <h3>DNS Servers</h3>
+                                    <p>Enter custom DNS server addresses</p>
+                                </div>
+                                <div class="settings-control dns-inputs">
+                                    <input type="text" id="primary-dns" placeholder="Primary DNS (e.g., 1.1.1.1)">
+                                    <input type="text" id="secondary-dns" placeholder="Secondary DNS (e.g., 1.0.0.1)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="settings-section">
+                    <h2>App Settings</h2>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Theme</h3>
+                                    <p>Choose app theme</p>
+                                </div>
+                                <div class="settings-control">
+                                    <select id="theme">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="system">System Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Language</h3>
+                                    <p>Select app language</p>
+                                </div>
+                                <div class="settings-control">
+                                    <select id="app-language">
+                                        <option value="en">English</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
+                                        <option value="ja">Japanese</option>
+                                        <option value="zh">Chinese</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-item">
+                                <div class="settings-info">
+                                    <h3>Notifications</h3>
+                                    <p>Enable app notifications</p>
+                                </div>
+                                <div class="settings-control">
+                                    <label class="toggle">
+                                        <input type="checkbox" id="notifications" checked>
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <div class="settings-actions">
+                    <button class="btn btn-primary" id="save-settings">Save Settings</button>
+                    <button class="btn btn-outline" id="reset-settings">Reset to Default</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Split Tunneling Modal -->
+    <div class="modal" id="split-tunneling-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Split Tunneling</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Choose which apps should use the VPN connection:</p>
+                
+                <div class="app-list">
+                    <div class="app-item">
+                        <div class="app-info">
+                            <div class="app-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="app-details">
+                                <h4>Web Browser</h4>
+                                <p>Chrome, Firefox, Safari</p>
+                            </div>
+                        </div>
+                        <div class="app-control">
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="app-item">
+                        <div class="app-info">
+                            <div class="app-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="app-details">
+                                <h4>Email Clients</h4>
+                                <p>Outlook, Mail, Thunderbird</p>
+                            </div>
+                        </div>
+                        <div class="app-control">
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="app-item">
+                        <div class="app-info">
+                            <div class="app-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="app-details">
+                                <h4>Gaming Apps</h4>
+                                <p>Steam, Epic Games, Battle.net</p>
+                            </div>
+                        </div>
+                        <div class="app-control">
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="app-item">
+                        <div class="app-info">
+                            <div class="app-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="app-details">
+                                <h4>Streaming Apps</h4>
+                                <p>Netflix, Hulu, Disney+</p>
+                            </div>
+                        </div>
+                        <div class="app-control">
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="app-item">
+                        <div class="app-info">
+                            <div class="app-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="app-details">
+                                <h4>Download Managers</h4>
+                                <p>BitTorrent, uTorrent</p>
+                            </div>
+                        </div>
+                        <div class="app-control">
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-primary">Save Changes</button>
+                    <button class="btn btn-outline modal-close-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/settings.js"></script>
+</body>
+</html>

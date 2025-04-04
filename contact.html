@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="servers.html">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="account.html">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help & FAQ</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="contact.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="upgrade-item">
+                        <a href="#upgrade" class="upgrade-link">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade to Premium</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">User</h3>
+                        <span id="account-type" class="account-badge free">Free Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="contact-header">
+                    <h2>Contact Us</h2>
+                    <p>We're here to help! Reach out to our team with any questions or concerns.</p>
+                </section>
+                
+                <section class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Email Support</h3>
+                                    <p>For general inquiries and support</p>
+                                    <a href="mailto:support@strawberryvpn.com">support@strawberryvpn.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Live Chat</h3>
+                                    <p>Available 24/7 for immediate assistance</p>
+                                    <button class="btn btn-outline btn-sm" id="live-chat-btn">Start Chat</button>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Phone Support</h3>
+                                    <p>Available for Premium users</p>
+                                    <span class="premium-only">Premium users only</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-hours">
+                            <h3>Support Hours</h3>
+                            <div class="hours-grid">
+                                <div class="hours-day">
+                                    <span class="day">Monday - Friday</span>
+                                    <span class="time">24 hours</span>
+                                </div>
+                                <div class="hours-day">
+                                    <span class="day">Saturday</span>
+                                    <span class="time">9:00 AM - 6:00 PM UTC</span>
+                                </div>
+                                <div class="hours-day">
+                                    <span class="day">Sunday</span>
+                                    <span class="time">10:00 AM - 4:00 PM UTC</span>
+                                </div>
+                            </div>
+                            <p class="premium-note">Premium users receive priority support 24/7.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <h3>Send Us a Message</h3>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-with-icon">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-tag"></i>
+                                    <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-folder"></i>
+                                    <select id="category" name="category" required>
+                                        <option value="">Select a category</option>
+                                        <option value="technical">Technical Support</option>
+                                        <option value="billing">Billing & Payments</option>
+                                        <option value="account">Account Issues</option>
+                                        <option value="feedback">Feedback & Suggestions</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Enter your message" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="attachments">Attachments (Optional)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="attachments" name="attachments" multiple>
+                                    <label for="attachments" class="file-upload-label">
+                                        <i class="fas fa-paperclip"></i>
+                                        <span>Choose files</span>
+                                    </label>
+                                    <div class="file-info">No files selected</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                                <button type="reset" class="btn btn-outline">Clear Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                
+                <section class="faq-preview">
+                    <h3>Frequently Asked Questions</h3>
+                    <p>Find quick answers to common questions below, or visit our <a href="help.html">Help Center</a> for more information.</p>
+                    
+                    <div class="faq-preview-items">
+                        <div class="faq-preview-item">
+                            <h4>How do I connect to a VPN server?</h4>
+                            <p>To connect to a VPN server, log in to your account and go to the Dashboard. Select a server location from the list, and click the "Connect" button.</p>
+                        </div>
+                        
+                        <div class="faq-preview-item">
+                            <h4>What are the benefits of Premium?</h4>
+                            <p>Premium users enjoy several benefits, including access to all 50+ server locations, specialized Gaming, Download, and Upload servers, unlimited bandwidth, and priority support.</p>
+                        </div>
+                        
+                        <div class="faq-preview-item">
+                            <h4>How do I cancel my subscription?</h4>
+                            <p>You can cancel your Premium subscription at any time from your account settings. Your Premium benefits will continue until the end of your current billing period.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Live Chat Modal -->
+    <div class="modal" id="live-chat-modal">
+        <div class="modal-content chat-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-comments"></i> Live Chat Support</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chat-container">
+                    <div class="chat-messages">
+                        <div class="chat-message support">
+                            <div class="message-avatar">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-sender">Support Agent</div>
+                                <div class="message-text">Hello! Welcome to Strawberry VPN support. How can I help you today?</div>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <textarea placeholder="Type your message here..."></textarea>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Message Sent</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully. Our support team will get back to you as soon as possible.</p>
+                    <p class="ticket-number">Ticket #: <span id="ticket-number">ST-12345</span></p>
+                    <button class="btn btn-primary modal-close-btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servers">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li class="upgrade-item">
+                        <a href="#upgrade" class="upgrade-link">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade to Premium</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">User</h3>
+                        <span id="account-type" class="account-badge free">Free Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="connection-status">
+                    <div class="status-card">
+                        <div class="status-header">
+                            <h2>VPN Status</h2>
+                            <div id="connection-status" class="status-indicator disconnected">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Disconnected</span>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-details">
+                            <div class="detail-item">
+                                <span class="detail-label">IP Address:</span>
+                                <span id="ip-address" class="detail-value">Not Connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span id="location" class="detail-value">Not Connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Connected For:</span>
+                                <span id="connection-time" class="detail-value">00:00:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-toggle">
+                            <button id="connect-toggle" class="btn btn-primary btn-large">
+                                <i class="fas fa-power-off"></i>
+                                <span>Connect</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="globe-container">
+                        <div id="globe"></div>
+                    </div>
+                </section>
+                
+                <section class="server-selection">
+                    <h2>Server Locations</h2>
+                    <p class="section-description">Select a server location to connect to</p>
+                    
+                    <div class="server-list">
+                        <div class="server-card" data-server="us">
+                            <div class="server-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="server-info">
+                                <h3>United States</h3>
+                                <div class="server-stats">
+                                    <span class="server-ping">45ms</span>
+                                    <span class="server-load">65%</span>
+                                </div>
+                            </div>
+                            <div class="server-select">
+                                <input type="radio" name="server" id="server-us" value="us">
+                                <label for="server-us"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="server-card" data-server="uk">
+                            <div class="server-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="server-info">
+                                <h3>United Kingdom</h3>
+                                <div class="server-stats">
+                                    <span class="server-ping">78ms</span>
+                                    <span class="server-load">42%</span>
+                                </div>
+                            </div>
+                            <div class="server-select">
+                                <input type="radio" name="server" id="server-uk" value="uk">
+                                <label for="server-uk"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="server-card" data-server="jp">
+                            <div class="server-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="server-info">
+                                <h3>Japan</h3>
+                                <div class="server-stats">
+                                    <span class="server-ping">112ms</span>
+                                    <span class="server-load">38%</span>
+                                </div>
+                            </div>
+                            <div class="server-select">
+                                <input type="radio" name="server" id="server-jp" value="jp">
+                                <label for="server-jp"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="server-card" data-server="sg">
+                            <div class="server-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="server-info">
+                                <h3>Singapore</h3>
+                                <div class="server-stats">
+                                    <span class="server-ping">95ms</span>
+                                    <span class="server-load">51%</span>
+                                </div>
+                            </div>
+                            <div class="server-select">
+                                <input type="radio" name="server" id="server-sg" value="sg">
+                                <label for="server-sg"></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="premium-upsell">
+                    <div class="upsell-content">
+                        <h2>Upgrade to Premium</h2>
+                        <p>Get access to premium servers, faster speeds, and more features</p>
+                        <ul class="premium-features">
+                            <li><i class="fas fa-check"></i> Access to 50+ server locations</li>
+                            <li><i class="fas fa-check"></i> Specialized gaming servers</li>
+                            <li><i class="fas fa-check"></i> Download & upload boost servers</li>
+                            <li><i class="fas fa-check"></i> No bandwidth limits</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                        <a href="#upgrade" class="btn btn-primary">Upgrade Now</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

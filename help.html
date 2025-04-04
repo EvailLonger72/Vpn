@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & FAQ - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="servers.html">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="account.html">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="help.html">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help & FAQ</span>
+                        </a>
+                    </li>
+                    <li class="upgrade-item">
+                        <a href="#upgrade" class="upgrade-link">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade to Premium</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">User</h3>
+                        <span id="account-type" class="account-badge free">Free Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="help-header">
+                    <h2>Help & Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about Strawberry VPN</p>
+                    
+                    <div class="search-container">
+                        <input type="text" id="faq-search" placeholder="Search for help...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </section>
+                
+                <section class="help-categories">
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="general">General</button>
+                        <button class="category-tab" data-category="account">Account</button>
+                        <button class="category-tab" data-category="connection">Connection</button>
+                        <button class="category-tab" data-category="premium">Premium</button>
+                        <button class="category-tab" data-category="troubleshooting">Troubleshooting</button>
+                    </div>
+                </section>
+                
+                <section class="faq-section active" id="general-faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is Strawberry VPN?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strawberry VPN is a secure virtual private network service that protects your online privacy and security. It encrypts your internet connection and masks your IP address, allowing you to browse the web anonymously and access geo-restricted content.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does Strawberry VPN work?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strawberry VPN works by creating an encrypted tunnel between your device and our secure servers. When you connect to the internet through this tunnel, your data is protected from prying eyes, and your IP address is masked with one from our servers, making it appear as if you're browsing from a different location.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is Strawberry VPN free to use?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strawberry VPN offers both free and premium plans. The free plan provides basic VPN protection with access to standard servers in select locations. For enhanced features like specialized gaming and download servers, unlimited bandwidth, and access to all server locations, you can upgrade to our Premium plan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What devices can I use Strawberry VPN on?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strawberry VPN is compatible with Windows, macOS, iOS, Android, and Linux. You can use it on computers, smartphones, tablets, and even some routers. Premium users can connect up to 5 devices simultaneously with a single account.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="faq-section" id="account-faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I create an account?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To create an account, click on the "Register" button on the homepage. Fill in your email address, create a password, select your account type (Free or Premium), and agree to the Terms of Service. Click "Create Account" to complete the registration process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I upgrade to Premium?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You can upgrade to Premium by clicking on the "Upgrade to Premium" button in the sidebar or on your account page. Select your preferred subscription plan (monthly or annual), enter your payment information, and complete the checkout process.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I cancel my Premium subscription?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can cancel your Premium subscription at any time from your account settings. Your Premium benefits will continue until the end of your current billing period. After that, your account will revert to the Free plan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>I forgot my password. What should I do?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you forgot your password, click on the "Forgot password?" link on the login page. Enter your email address, and we'll send you a password reset link. Follow the instructions in the email to create a new password.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="faq-section" id="connection-faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I connect to a VPN server?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To connect to a VPN server, log in to your account and go to the Dashboard. Select a server location from the list, and click the "Connect" button. You can also connect from the Servers page by selecting a server and clicking "Connect".</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Why is my connection slow?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>VPN connection speeds can be affected by various factors, including your base internet speed, distance to the server, server load, and network congestion. Try connecting to a server closer to your location or one with lower load. Premium users can also use our specialized Download Boost servers for faster speeds.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What is the Kill Switch feature?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The Kill Switch is a security feature that automatically blocks your internet connection if your VPN connection drops unexpectedly. This prevents your real IP address from being exposed. You can enable or disable this feature in the Settings page.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What protocols does Strawberry VPN use?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strawberry VPN supports multiple protocols, including OpenVPN, WireGuard, and IKEv2. By default, we automatically select the best protocol for your connection, but you can manually choose your preferred protocol in the Settings page.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="faq-section" id="premium-faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are the benefits of Premium?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Premium users enjoy several benefits, including access to all 50+ server locations, specialized Gaming, Download, and Upload servers, unlimited bandwidth, faster connection speeds, priority support, and the ability to connect up to 5 devices simultaneously.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are Gaming Servers?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Gaming Servers are specialized servers optimized for low ping and minimal latency, making them ideal for online gaming. These servers are strategically located near major gaming hubs and use optimized routing to provide the best gaming experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are Download Boost Servers?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Download Boost Servers are optimized for high download speeds, making them perfect for streaming, torrenting, and downloading large files. These servers have enhanced bandwidth allocation and optimized network configurations to maximize download performance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What are Upload Boost Servers?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Upload Boost Servers are optimized for high upload speeds, making them ideal for content creators, cloud backup, and file sharing. These servers prioritize upload traffic and have optimized configurations to enhance upload performance.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="faq-section" id="troubleshooting-faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>I can't connect to a server. What should I do?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If you're having trouble connecting to a server, try the following steps:</p>
+                            <ol>
+                                <li>Check your internet connection</li>
+                                <li>Try a different server location</li>
+                                <li>Restart the application</li>
+                                <li>Try a different protocol in Settings</li>
+                                <li>Temporarily disable your firewall or antivirus</li>
+                                <li>Clear your browser cache and cookies</li>
+                            </ol>
+                            <p>If the issue persists, please contact our support team for assistance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Why can't I access certain websites with VPN?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Some websites and services use VPN detection methods to block access from VPN servers. If you're having trouble accessing a specific website, try connecting to a different server location or using our Stealth mode (available in Settings for Premium users).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>My connection keeps dropping. How can I fix this?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Connection drops can be caused by network instability, server issues, or interference from other applications. Try the following solutions:</p>
+                            <ul>
+                                <li>Connect to a server closer to your location</li>
+                                <li>Try a different protocol in Settings</li>
+                                <li>Check your internet connection stability</li>
+                                <li>Disable battery saving modes on mobile devices</li>
+                                <li>Ensure no other VPN applications are running</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I report a bug or issue?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>To report a bug or issue, please contact our support team through the Contact page or by emailing support@strawberryvpn.com. Include as much detail as possible, including your device type, operating system, and a description of the issue. Screenshots or error messages are also helpful.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="contact-section">
+                    <h2>Still Need Help?</h2>
+                    <p>If you couldn't find the answer to your question, feel free to contact our support team.</p>
+                    
+                    <div class="contact-options">
+                        <div class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Support</h3>
+                            <p>Send us an email and we'll get back to you within 24 hours.</p>
+                            <a href="mailto:support@strawberryvpn.com" class="btn btn-outline">Email Us</a>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Live Chat</h3>
+                            <p>Chat with our support team for immediate assistance.</p>
+                            <button class="btn btn-outline" id="live-chat-btn">Start Chat</button>
+                        </div>
+                        
+                        <div class="contact-option">
+                            <div class="contact-icon">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <h3>Support Ticket</h3>
+                            <p>Submit a support ticket for technical issues.</p>
+                            <a href="contact.html" class="btn btn-outline">Submit Ticket</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Live Chat Modal -->
+    <div class="modal" id="live-chat-modal">
+        <div class="modal-content chat-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-comments"></i> Live Chat Support</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chat-container">
+                    <div class="chat-messages">
+                        <div class="chat-message support">
+                            <div class="message-avatar">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-sender">Support Agent</div>
+                                <div class="message-text">Hello! Welcome to Strawberry VPN support. How can I help you today?</div>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <textarea placeholder="Type your message here..."></textarea>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/help.js"></script>
+</body>
+</html>

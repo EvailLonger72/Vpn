@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Dashboard - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page premium-dashboard">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="premium.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servers">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#account">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#support">
+                            <i class="fas fa-headset"></i>
+                            <span>Premium Support</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar premium-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">Premium User</h3>
+                        <span id="account-type" class="account-badge premium">Premium Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="connection-status">
+                    <div class="status-card premium-card">
+                        <div class="status-header">
+                            <h2>VPN Status</h2>
+                            <div id="connection-status" class="status-indicator disconnected">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Disconnected</span>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-details">
+                            <div class="detail-item">
+                                <span class="detail-label">IP Address:</span>
+                                <span id="ip-address" class="detail-value">Not Connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location:</span>
+                                <span id="location" class="detail-value">Not Connected</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Connected For:</span>
+                                <span id="connection-time" class="detail-value">00:00:00</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Server Type:</span>
+                                <span id="server-type" class="detail-value">Standard</span>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-toggle">
+                            <button id="connect-toggle" class="btn btn-primary btn-large">
+                                <i class="fas fa-power-off"></i>
+                                <span>Connect</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="globe-container">
+                        <div id="globe"></div>
+                    </div>
+                </section>
+                
+                <section class="server-selection premium-servers">
+                    <h2>Premium Server Selection</h2>
+                    <p class="section-description">Choose from our specialized premium servers</p>
+                    
+                    <div class="server-tabs">
+                        <button class="server-tab active" data-tab="standard">Standard</button>
+                        <button class="server-tab" data-tab="gaming">Gaming</button>
+                        <button class="server-tab" data-tab="download">Download</button>
+                        <button class="server-tab" data-tab="upload">Upload</button>
+                    </div>
+                    
+                    <div class="server-tab-content active" id="standard-servers">
+                        <div class="server-list">
+                            <div class="server-card" data-server="us">
+                                <div class="server-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>United States</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">45ms</span>
+                                        <span class="server-load">65%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-us" value="us">
+                                    <label for="server-us"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card" data-server="uk">
+                                <div class="server-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>United Kingdom</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">78ms</span>
+                                        <span class="server-load">42%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-uk" value="uk">
+                                    <label for="server-uk"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card" data-server="jp">
+                                <div class="server-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Japan</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">112ms</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-jp" value="jp">
+                                    <label for="server-jp"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card" data-server="sg">
+                                <div class="server-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Singapore</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">95ms</span>
+                                        <span class="server-load">51%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-sg" value="sg">
+                                    <label for="server-sg"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="server-tab-content" id="gaming-servers">
+                        <div class="server-list">
+                            <div class="server-card premium-server" data-server="gaming-us">
+                                <div class="server-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Gaming US East</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">25ms</span>
+                                        <span class="server-load">45%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-gaming-us" value="gaming-us">
+                                    <label for="server-gaming-us"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="gaming-eu">
+                                <div class="server-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Gaming EU</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">32ms</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-gaming-eu" value="gaming-eu">
+                                    <label for="server-gaming-eu"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="gaming-asia">
+                                <div class="server-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Gaming Asia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">42ms</span>
+                                        <span class="server-load">32%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-gaming-asia" value="gaming-asia">
+                                    <label for="server-gaming-asia"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="gaming-au">
+                                <div class="server-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Gaming Australia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">48ms</span>
+                                        <span class="server-load">28%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-gaming-au" value="gaming-au">
+                                    <label for="server-gaming-au"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="gaming-sa">
+                                <div class="server-icon">
+                                    <i class="fas fa-gamepad"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Gaming South America</h3>
+                                    <div class="server-stats">
+                                        <span class="server-ping">55ms</span>
+                                        <span class="server-load">35%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-gaming-sa" value="gaming-sa">
+                                    <label for="server-gaming-sa"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="server-tab-content" id="download-servers">
+                        <div class="server-list">
+                            <div class="server-card premium-server" data-server="dl-us">
+                                <div class="server-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Download US</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">500 Mbps</span>
+                                        <span class="server-load">42%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-dl-us" value="dl-us">
+                                    <label for="server-dl-us"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="dl-eu">
+                                <div class="server-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Download EU</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">450 Mbps</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-dl-eu" value="dl-eu">
+                                    <label for="server-dl-eu"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="dl-asia">
+                                <div class="server-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Download Asia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">400 Mbps</span>
+                                        <span class="server-load">45%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-dl-asia" value="dl-asia">
+                                    <label for="server-dl-asia"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="dl-au">
+                                <div class="server-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Download Australia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">350 Mbps</span>
+                                        <span class="server-load">32%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-dl-au" value="dl-au">
+                                    <label for="server-dl-au"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="dl-sa">
+                                <div class="server-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Download South America</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">380 Mbps</span>
+                                        <span class="server-load">36%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-dl-sa" value="dl-sa">
+                                    <label for="server-dl-sa"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="server-tab-content" id="upload-servers">
+                        <div class="server-list">
+                            <div class="server-card premium-server" data-server="ul-us">
+                                <div class="server-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Upload US</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">300 Mbps</span>
+                                        <span class="server-load">40%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-ul-us" value="ul-us">
+                                    <label for="server-ul-us"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="ul-eu">
+                                <div class="server-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Upload EU</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">280 Mbps</span>
+                                        <span class="server-load">35%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-ul-eu" value="ul-eu">
+                                    <label for="server-ul-eu"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="ul-asia">
+                                <div class="server-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Upload Asia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">250 Mbps</span>
+                                        <span class="server-load">42%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-ul-asia" value="ul-asia">
+                                    <label for="server-ul-asia"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="ul-au">
+                                <div class="server-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Upload Australia</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">220 Mbps</span>
+                                        <span class="server-load">30%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-ul-au" value="ul-au">
+                                    <label for="server-ul-au"></label>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server" data-server="ul-sa">
+                                <div class="server-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="server-info">
+                                    <h3>Upload South America</h3>
+                                    <div class="server-stats">
+                                        <span class="server-speed">240 Mbps</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-select">
+                                    <input type="radio" name="server" id="server-ul-sa" value="ul-sa">
+                                    <label for="server-ul-sa"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="premium-stats">
+                    <h2>Premium Statistics</h2>
+                    <div class="stats-cards">
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>Connection Speed</h3>
+                                <div class="stats-value" id="connection-speed">0 Mbps</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>Data Transferred</h3>
+                                <div class="stats-value" id="data-transferred">0 MB</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-card">
+                            <div class="stats-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="stats-info">
+                                <h3>Threats Blocked</h3>
+                                <div class="stats-value" id="threats-blocked">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/premium.js"></script>
+</body>
+</html>

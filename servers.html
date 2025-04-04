@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servers - Strawberry VPN</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍓</span>
+                    <h1>Strawberry VPN</h1>
+                </a>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="servers.html">
+                            <i class="fas fa-server"></i>
+                            <span>Servers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="account.html">
+                            <i class="fas fa-user"></i>
+                            <span>Account</span>
+                        </a>
+                    </li>
+                    <li class="upgrade-item">
+                        <a href="#upgrade" class="upgrade-link">
+                            <i class="fas fa-crown"></i>
+                            <span>Upgrade to Premium</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn btn-outline btn-block">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+        
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="user-name">User</h3>
+                        <span id="account-type" class="account-badge free">Free Account</span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="dashboard-content">
+                <section class="servers-header">
+                    <div class="servers-title">
+                        <h2>VPN Servers</h2>
+                        <p>Connect to any of our secure servers around the world</p>
+                    </div>
+                    
+                    <div class="servers-actions">
+                        <div class="search-container">
+                            <input type="text" id="server-search" placeholder="Search servers...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        
+                        <div class="filter-container">
+                            <select id="server-filter">
+                                <option value="all">All Servers</option>
+                                <option value="recommended">Recommended</option>
+                                <option value="favorites">Favorites</option>
+                                <option value="recent">Recently Used</option>
+                            </select>
+                        </div>
+                        
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="servers-map">
+                    <div class="globe-container">
+                        <div id="globe"></div>
+                    </div>
+                </section>
+                
+                <section class="servers-tabs">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="all">All Servers</button>
+                        <button class="tab-btn" data-tab="standard">Standard</button>
+                        <button class="tab-btn premium-tab" data-tab="gaming">Gaming</button>
+                        <button class="tab-btn premium-tab" data-tab="download">Download</button>
+                        <button class="tab-btn premium-tab" data-tab="upload">Upload</button>
+                    </div>
+                </section>
+                
+                <section class="servers-content">
+                    <div class="tab-content active" id="all-servers">
+                        <div class="region-group">
+                            <div class="region-header">
+                                <h3>North America</h3>
+                                <span class="server-count">5 Servers</span>
+                            </div>
+                            
+                            <div class="server-grid">
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/us.png" alt="USA Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>United States</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">45ms</span>
+                                            <span class="server-load">65%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/ca.png" alt="Canada Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Canada</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">52ms</span>
+                                            <span class="server-load">48%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/mx.png" alt="Mexico Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Mexico</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">68ms</span>
+                                            <span class="server-load">35%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="region-group">
+                            <div class="region-header">
+                                <h3>Europe</h3>
+                                <span class="server-count">6 Servers</span>
+                            </div>
+                            
+                            <div class="server-grid">
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>United Kingdom</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">78ms</span>
+                                            <span class="server-load">42%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite active">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/de.png" alt="Germany Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Germany</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">82ms</span>
+                                            <span class="server-load">56%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/fr.png" alt="France Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>France</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">85ms</span>
+                                            <span class="server-load">39%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/nl.png" alt="Netherlands Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Netherlands</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">80ms</span>
+                                            <span class="server-load">45%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="region-group">
+                            <div class="region-header">
+                                <h3>Asia Pacific</h3>
+                                <span class="server-count">4 Servers</span>
+                            </div>
+                            
+                            <div class="server-grid">
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Japan</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">112ms</span>
+                                            <span class="server-load">38%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/sg.png" alt="Singapore Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Singapore</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">95ms</span>
+                                            <span class="server-load">51%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="server-card">
+                                    <div class="server-flag">
+                                        <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag">
+                                    </div>
+                                    <div class="server-info">
+                                        <h4>Australia</h4>
+                                        <div class="server-details">
+                                            <span class="server-ping">135ms</span>
+                                            <span class="server-load">32%</span>
+                                        </div>
+                                    </div>
+                                    <div class="server-actions">
+                                        <button class="btn-favorite">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        <button class="btn btn-primary btn-sm">Connect</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="gaming-servers">
+                        <div class="premium-overlay">
+                            <div class="premium-message">
+                                <i class="fas fa-crown"></i>
+                                <h3>Premium Feature</h3>
+                                <p>Gaming servers are available exclusively to Premium users.</p>
+                                <button class="btn btn-primary upgrade-btn">Upgrade to Premium</button>
+                            </div>
+                        </div>
+                        
+                        <div class="server-grid">
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/us.png" alt="USA Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-gamepad"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Gaming US East</h4>
+                                    <div class="server-details">
+                                        <span class="server-ping">25ms</span>
+                                        <span class="server-load">45%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-gamepad"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Gaming EU</h4>
+                                    <div class="server-details">
+                                        <span class="server-ping">32ms</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-gamepad"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Gaming Asia</h4>
+                                    <div class="server-details">
+                                        <span class="server-ping">42ms</span>
+                                        <span class="server-load">32%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-gamepad"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Gaming Australia</h4>
+                                    <div class="server-details">
+                                        <span class="server-ping">48ms</span>
+                                        <span class="server-load">28%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/br.png" alt="Brazil Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-gamepad"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Gaming South America</h4>
+                                    <div class="server-details">
+                                        <span class="server-ping">55ms</span>
+                                        <span class="server-load">35%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="download-servers">
+                        <div class="premium-overlay">
+                            <div class="premium-message">
+                                <i class="fas fa-crown"></i>
+                                <h3>Premium Feature</h3>
+                                <p>Download Boost servers are available exclusively to Premium users.</p>
+                                <button class="btn btn-primary upgrade-btn">Upgrade to Premium</button>
+                            </div>
+                        </div>
+                        
+                        <div class="server-grid">
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/us.png" alt="USA Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Download US</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">500 Mbps</span>
+                                        <span class="server-load">42%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Download EU</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">450 Mbps</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Download Asia</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">400 Mbps</span>
+                                        <span class="server-load">45%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Download Australia</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">350 Mbps</span>
+                                        <span class="server-load">32%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/br.png" alt="Brazil Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-download"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Download South America</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">380 Mbps</span>
+                                        <span class="server-load">36%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="upload-servers">
+                        <div class="premium-overlay">
+                            <div class="premium-message">
+                                <i class="fas fa-crown"></i>
+                                <h3>Premium Feature</h3>
+                                <p>Upload Boost servers are available exclusively to Premium users.</p>
+                                <button class="btn btn-primary upgrade-btn">Upgrade to Premium</button>
+                            </div>
+                        </div>
+                        
+                        <div class="server-grid">
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/us.png" alt="USA Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Upload US</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">300 Mbps</span>
+                                        <span class="server-load">40%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Upload EU</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">280 Mbps</span>
+                                        <span class="server-load">35%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/jp.png" alt="Japan Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Upload Asia</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">250 Mbps</span>
+                                        <span class="server-load">42%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/au.png" alt="Australia Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Upload Australia</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">220 Mbps</span>
+                                        <span class="server-load">30%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                            
+                            <div class="server-card premium-server">
+                                <div class="server-flag">
+                                    <img src="https://flagcdn.com/w40/br.png" alt="Brazil Flag">
+                                    <span class="premium-badge">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                </div>
+                                <div class="server-info">
+                                    <h4>Upload South America</h4>
+                                    <div class="server-details">
+                                        <span class="server-speed">240 Mbps</span>
+                                        <span class="server-load">38%</span>
+                                    </div>
+                                </div>
+                                <div class="server-actions">
+                                    <button class="btn-favorite">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm">Connect</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upgrade to Premium</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Monthly</h3>
+                            <p class="price">$9.99<span>/month</span></p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Advanced VPN Protection</li>
+                                <li><i class="fas fa-check"></i> 50+ Server Locations</li>
+                                <li><i class="fas fa-check"></i> Ultra-Fast Speed</li>
+                                <li><i class="fas fa-check"></i> Gaming & Download Servers</li>
+                                <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-block">Select Plan</button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Annual</h3>
+                            <p class="price">$7.99<span>/month</span></p>
+                            <div class="pricing-badge">Save 20%</div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Advanced VPN Protection</li>
+                                <li><i class="fas fa-check"></i> 50+ Server Locations</li>
+                                <li><i class="fas fa-check"></i> Ultra-Fast Speed</li>
+                                <li><i class="fas fa-check"></i> Gaming & Download Servers</li>
+                                <li><i class="fas fa-check"></i> Unlimited Bandwidth</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary btn-block">Select Plan</button>
+                    </div>
+                </div>
+                
+                <div class="payment-form">
+                    <h3>Payment Information</h3>
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="card-name" name="card-name" placeholder="Enter name on card">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-credit-card"></i>
+                                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-block">Pay Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/globe.js"></script>
+    <script src="js/servers.js"></script>
+</body>
+</html>
